@@ -1,6 +1,6 @@
 class Url < ApplicationRecord
-  validates :link, presence: true, uniqueness: true
-  validates :shortlink, presence: true, uniqueness: true
+  validates :link, presence: true, uniqueness: true, allow_blank: false
+  validates :shortlink, presence: true, uniqueness: true, allow_blank: false
 
   before_validation :generate_shortlink
 
