@@ -5,12 +5,12 @@ class Url < ApplicationRecord
   before_validation :generate_shortlink
 
   def to_param
-    link
+    shortlink
   end
 
   private
 
   def generate_shortlink
-    shortlink = SecureRandom.uuid[0..5]} if shortlink.nil? || shortlink.empty?
+    self.shortlink = SecureRandom.uuid[0..5] if shortlink.blank?
   end
 end
