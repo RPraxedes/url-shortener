@@ -97,6 +97,11 @@ GEM
       rubocop (~> 0.79)
       smart_properties
     erubi (1.9.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     fasterer (0.8.3)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
@@ -275,6 +280,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   erb_lint
+  factory_bot_rails
   fasterer
   jbuilder (~> 2.7)
   puma (~> 4.1)
