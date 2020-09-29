@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_09_28_062530) do
 
   create_table "urls", force: :cascade do |t|
-    t.string "link"
-    t.string "shortlink"
+    t.string "link", null: false
+    t.string "shortlink", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["link"], name: "index_urls_on_link", unique: true
+    t.index ["shortlink"], name: "index_urls_on_shortlink", unique: true
   end
 
 end
