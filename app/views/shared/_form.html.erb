@@ -1,0 +1,6 @@
+<%= form_with model: @url, url: urls_path, method: :post do |f| %>
+  <div class="ui input">
+    <%= f.text_field :link %>
+  </div>
+  <%= f.submit class: "ui primary button" %>
+<% end %>

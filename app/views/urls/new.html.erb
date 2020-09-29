@@ -1,4 +1,8 @@
-<%= form_with model: @url, url: urls_path, method: :post do |f| %>
-  <%= f.text_field :link %>
-  <%= f.submit %>
-<% end %>
+<div class="ui center aligned container margin-top-25">
+  <div class="v-centered">
+    <%= render "shared/title" %>
+  </div>
+  <div class="v-centered">
+    <%= render "shared/form" %>
+  </div>
+</div>
