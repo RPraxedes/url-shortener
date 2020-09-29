@@ -1,5 +1,5 @@
 class UrlsController < ApplicationController
-  before_action :get_url, only: [:show, :destroy]
+  before_action :fetch_url, only: [:show, :destroy]
 
   def index
     @urls = Url.all
@@ -10,23 +10,17 @@ class UrlsController < ApplicationController
   def new; end
 
   def create
-    @url = Url.new(url_params)
+    @url = Url.find_or_create_by!(url_params)
 
-    if @url.save!
-      redirect_to @url
-    else
-      flash.now[:error] = "Unable to create shortlink."
-
-      render :new
-    end
+    redirect_to @url
   end
 
   def destroy; end
 
   private
 
-  def get_url
-    @url = Url.find_by(link: param[:id])
+  def fetch_url
+    @url = Url.find_by(shortlink: params[:id])
   end
 
   def url_params
