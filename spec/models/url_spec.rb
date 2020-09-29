@@ -12,6 +12,7 @@ RSpec.describe Url, type: :model do
       url.save
 
       expect(url.shortlink).not_to be_nil
+      expect(url.shortlink.length).to eq 6
     end
   end
 end
