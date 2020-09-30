@@ -128,6 +128,8 @@ Style/RedundantRegexpCharacterClass:
   Enabled: true
 Style/RedundantRegexpEscape:
   Enabled: true
+Style/EndOfLine:
+  EnforcedStyle: crlf
 Metrics/BlockLength:
   Exclude:
     - "app/rails_admin_models/*.rb"
