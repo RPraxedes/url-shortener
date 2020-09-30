@@ -1,5 +1,5 @@
 class Visitor < ApplicationRecord
-  has_many :urls, dependent: :destroy
+  belongs_to :url
 
   validates :ip_address, presence: true
 end

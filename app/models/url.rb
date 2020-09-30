@@ -1,10 +1,11 @@
 class Url < ApplicationRecord
-  validates :link, presence: true, uniqueness: true, allow_blank: false
-  validates :shortlink, presence: true, uniqueness: true, allow_blank: false
+  has_many :visitors, dependent: :destroy
 
   before_validation :generate_shortlink
 
   ROOT_URL = "localhost:3000".freeze
+  validates :link, presence: true, uniqueness: true, allow_blank: false
+  validates :shortlink, presence: true, uniqueness: true, allow_blank: false
 
   def to_param
     shortlink

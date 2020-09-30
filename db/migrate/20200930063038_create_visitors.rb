@@ -6,6 +6,7 @@ class CreateVisitors < ActiveRecord::Migration[6.0]
       t.string :platform
       t.string :device
       t.string :region
+      t.belongs_to :url, foreign_key: true
 
       t.timestamps
     end
