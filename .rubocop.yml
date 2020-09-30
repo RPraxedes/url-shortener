@@ -44,7 +44,7 @@ Lint/MixedRegexpCaptureTypes:
 Lint/UnusedBlockArgument:
   Enabled: true
 Metrics/AbcSize:
-  Max: 35
+  Max: 37
 Metrics/ClassLength:
   Max: 150
 Metrics/MethodLength:

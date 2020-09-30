@@ -5,12 +5,13 @@ class HomeController < ApplicationController
     if shortlink.nil?
       render "home/error"
     else
+      language = browser.accept_language.first
       visitor = Visitor.create(
         ip_address: request.remote_ip,
         browser: "#{browser.name} #{browser.full_version}",
         platform: "#{browser.platform.name} #{browser.platform.version}",
         device: browser.device.unknown? ? "computer" : browser.device.name,
-        region: browser.accept_language.first.region,
+        region: language.present? ? browser.accept_language.first.region : "Earth",
         url: shortlink
       )
 
