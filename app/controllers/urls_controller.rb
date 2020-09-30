@@ -1,5 +1,5 @@
 class UrlsController < ApplicationController
-  before_action :fetch_url, only: [:show, :destroy]
+  before_action :fetch_url, only: :show
 
   def index
     @urls = Url.all
@@ -14,8 +14,6 @@ class UrlsController < ApplicationController
 
     redirect_to @url
   end
-
-  def destroy; end
 
   private
 

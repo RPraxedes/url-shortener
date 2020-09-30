@@ -1,1 +1,22 @@
-<%= @urls.inspect %>
+<div class="ui center aligned container margin-top-25">
+  <%= render "shared/title" %>
+  <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Link</th>
+        <th>Shortlink</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @urls.each do |u| %>
+      <tr>
+        <td><%= link_to(u.link, u.link, target: :blank) %></td>
+        <td><%= link_to("#{Url::ROOT_URL}/#{u.shortlink}", "#{Url::ROOT_URL}/#{u.shortlink}", target: :blank) %></td>
+        <td class="center aligned"><a type="button" href="/urls/<%= u.shortlink %>" class="ui primary button">Stats</a></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p><%= link_to("Back to home", "/") %></p>
+</div>

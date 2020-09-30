@@ -1,0 +1,6 @@
+<div>
+  <% if @url.present? %>
+  <h4 class="ui header">Shortlink is <%= link_to("#{Url::ROOT_URL}/#{@url.shortlink}", "#{Url::ROOT_URL}/#{@url.shortlink}", target: :blank) %></h4>
+  <p>for <%= link_to(@url.link, @url.link, target: :blank) %></p>
+  <% end %>
+</div>

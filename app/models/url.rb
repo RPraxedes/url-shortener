@@ -4,6 +4,8 @@ class Url < ApplicationRecord
 
   before_validation :generate_shortlink
 
+  ROOT_URL = "localhost:3000".freeze
+
   def to_param
     shortlink
   end
