@@ -2,5 +2,55 @@
   <% if @url.present? %>
   <h4 class="ui header">Shortlink is <%= link_to("#{Url::ROOT_URL}/#{@url.shortlink}", "#{Url::ROOT_URL}/#{@url.shortlink}", target: :blank) %></h4>
   <p>for <%= link_to(@url.link, @url.link, target: :blank) %></p>
+  <h3 class="ui header">Visitors by day: <%= @visitors_by_date.count %></h3>
+  <%= form_tag(url_path(id: @url.shortlink), method: "get") do %>
+  <div class="field">
+    <%= select_tag(:date, options_for_select(@dates), class: "ui dropdown") %>
+    <%= submit_tag("Filter", class: "ui button", name: nil) %>
+  </div>
+  <% end %>
+  <h3 class="ui header">Visitors by Hour</h3>
+  <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Hour</th>
+        <th>Visitor Count</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @visitor_count_by_hour.each do |key, value| %>
+      <tr>
+        <% next if value == 0 %>
+        <td><%= key %></td>
+        <td><%= value %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <h3 class="ui header">Visitors Information</h3>
+  <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>IP Address</th>
+        <th>Browser</th>
+        <th>Platform</th>
+        <th>Device</th>
+        <th>Region</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @visitors_by_date.each do |v| %>
+      <tr>
+        <td><%= v.ip_address %></td>
+        <td><%= v.browser %></td>
+        <td><%= v.platform %></td>
+        <td><%= v.device %></td>
+        <td><%= v.region %></td>
+        <td><%= v.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
   <% end %>
 </div>
