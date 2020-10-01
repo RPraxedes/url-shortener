@@ -1,9 +1,8 @@
 class UrlsController < ApplicationController
   before_action :fetch_url, only: :show
+  before_action :fetch_urls, only: [:index, :new]
 
-  def index
-    @urls = Url.all
-  end
+  def index; end
 
   def show
     visitors = @url.visitors
@@ -25,6 +24,10 @@ class UrlsController < ApplicationController
 
   def fetch_url
     @url = Url.find_by(shortlink: params[:id])
+  end
+
+  def fetch_urls
+    @urls = Url.all
   end
 
   def url_params
