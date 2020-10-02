@@ -8,4 +8,8 @@
   <div class="margin-top-10">
     <a type="button" class="mini ui primary basic button" href="/urls">See all shortlinks</a>
   </div>
+  <div class="margin-top-10">
+    <h3 class="ui header">URLs Shortened Per Day</h3>
+    <%= line_chart @urls.group_by_day(:created_at).count %>
+  </div>
 </div>

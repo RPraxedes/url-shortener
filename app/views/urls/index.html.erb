@@ -12,7 +12,7 @@
     <% @urls.each do |u| %>
       <tr>
         <td><%= link_to(u.link, u.link, target: :blank) %></td>
-        <td><%= link_to("#{Url::ROOT_URL}/#{u.shortlink}", "#{Url::ROOT_URL}/#{u.shortlink}", target: :blank) %></td>
+        <td><%= link_to("#{Url::ROOT_URL}/#{u.shortlink}", "/#{u.shortlink}", target: :blank) %></td>
         <td class="center aligned"><a type="button" href="/urls/<%= u.shortlink %>" class="ui primary button">Stats</a></td>
       </tr>
     <% end %>

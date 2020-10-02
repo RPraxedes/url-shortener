@@ -3,6 +3,8 @@ source "https://rubygems.org"
 ruby "2.7.1"
 
 gem "browser", require: "browser/browser"
+gem "chartkick"
+gem "groupdate"
 gem "rails", "~> 6.0.3", ">= 6.0.3.3"
 gem "sqlite3", "~> 1.4"
 gem "puma", "~> 4.1"
