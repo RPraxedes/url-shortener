@@ -1,6 +1,6 @@
 <div>
   <% if @url.present? %>
-  <h2 class="ui header">Shortlink is <%= link_to("#{Url::ROOT_URL}/#{@url.shortlink}", "#{Url::ROOT_URL}/#{@url.shortlink}", target: :blank) %></h2>
+  <h2 class="ui header">Shortlink is <%= link_to("#{Url::ROOT_URL}/#{@url.shortlink}", "/#{@url.shortlink}", target: :blank) %></h2>
   <p>for <%= link_to(@url.link, @url.link, target: :blank) %></p>
   <h3 class="ui header">Visitors by day: <%= @visitors_by_date.count %></h3>
   <%= form_tag(url_path(id: @url.shortlink), method: "get") do %>
